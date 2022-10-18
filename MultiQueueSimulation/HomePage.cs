@@ -58,14 +58,16 @@ namespace MultiQueueSimulation
                             default:
                                 break;
                         }
-                        if (lines[i].ToLower() == "ServiceDistribution_Server" + (serverNo)) {
-                            indecies.Add(i);
+                        if (lines[i].ToLower() == ("ServiceDistribution_Server" + (serverNo)).ToLower()) {
+                            indecies.Add(i + 1);
                             serverNo++;
                         }
                     }
                     int interArrIndex = indecies[0];
                     decimal cummulativeProb = 0;
-                    while (lines[interArrIndex].ToLower().Equals("ServiceDistribution_Server1".ToLower())) {
+
+                    //edit the condition
+                    while (lines[interArrIndex] != ("\n") && lines[interArrIndex] != ("\r") && lines[interArrIndex] != ("\r\n") && lines[interArrIndex] != ("")) {
                         TimeDistribution timeDistribution = new TimeDistribution();
                         string[] timeAndProb = lines[interArrIndex].Split(',');           
                         timeDistribution.Time = int.Parse(timeAndProb[0]);
@@ -75,19 +77,22 @@ namespace MultiQueueSimulation
                         timeDistribution.CummProbability = cummulativeProb;
                         timeDistribution.MaxRange = (int)(timeDistribution.CummProbability * 100);
                         simSys.InterarrivalDistribution.Add(timeDistribution);
-                        
-                        
+
+
                         //*/***Doen't make any sense
                         tableLayoutPanel1.RowCount++;
-                  
+
                         interArrIndex++;
                     }
-                    int row = 2;
-                    for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++) {
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "Street, City, State" }, 1, row);
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "888888888888" }, 2, row);
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "xxxxxxx@gmail.com" }, 3, row);
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "xxxxxxx@gmail.com" }, 4, row);
+                    int row = 1;
+                    for (int i = 0; i < simSys.InterarrivalDistribution.Count; i++) {
+
+                        TimeDistribution t = simSys.InterarrivalDistribution[i];
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = t.Time.ToString()}, 0, row);
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = t.Probability.ToString() }, 1, row);
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = t.CummProbability.ToString() }, 2, row);
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = ""+t.MinRange + " - "+ t.MaxRange }, 3, row);
+                        
                         row++;
                     }
                     MessageBox.Show(tableLayoutPanel1.RowCount.ToString());
@@ -111,9 +116,9 @@ namespace MultiQueueSimulation
             return number == 1 ? Enums.SelectionMethod.HighestPriority : number  == 2 ? Enums.SelectionMethod.Random : Enums.SelectionMethod.LeastUtilization;
         }
 
-        private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
-        {
-           
+        private void resetTableValues() {
+            
+
         }
 
         
