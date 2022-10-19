@@ -97,3 +97,4 @@ D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.exe
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.pdb
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.HomePage.resources
+D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.ServerInfo.resources

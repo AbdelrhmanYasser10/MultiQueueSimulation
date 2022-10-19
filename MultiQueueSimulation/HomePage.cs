@@ -10,8 +10,7 @@ namespace MultiQueueSimulation
     public partial class HomePage : Form
     {
 
-        SimulationSystem simSys;
-     
+        private static SimulationSystem simSys;
 
         public HomePage()
         {
@@ -58,14 +57,16 @@ namespace MultiQueueSimulation
                             default:
                                 break;
                         }
-                        if (lines[i].ToLower() == "ServiceDistribution_Server" + (serverNo)) {
-                            indecies.Add(i);
+                        if (lines[i] == "ServiceDistribution_Server" + (serverNo)) {
+                            indecies.Add(i + 1); 
                             serverNo++;
                         }
                     }
                     int interArrIndex = indecies[0];
                     decimal cummulativeProb = 0;
-                    while (lines[interArrIndex].ToLower().Equals("ServiceDistribution_Server1".ToLower())) {
+
+                    //edit the condition
+                    while (lines[interArrIndex] != ("\n") && lines[interArrIndex] != ("\r") && lines[interArrIndex] != ("\r\n") && lines[interArrIndex] != ("")) {
                         TimeDistribution timeDistribution = new TimeDistribution();
                         string[] timeAndProb = lines[interArrIndex].Split(',');           
                         timeDistribution.Time = int.Parse(timeAndProb[0]);
@@ -75,23 +76,46 @@ namespace MultiQueueSimulation
                         timeDistribution.CummProbability = cummulativeProb;
                         timeDistribution.MaxRange = (int)(timeDistribution.CummProbability * 100);
                         simSys.InterarrivalDistribution.Add(timeDistribution);
-                        
-                        
+
+
                         //*/***Doen't make any sense
                         tableLayoutPanel1.RowCount++;
-                  
+
                         interArrIndex++;
                     }
-                    int row = 2;
-                    for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++) {
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "Street, City, State" }, 1, row);
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "888888888888" }, 2, row);
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "xxxxxxx@gmail.com" }, 3, row);
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "xxxxxxx@gmail.com" }, 4, row);
+                    int row = 1;
+                    for (int i = 0; i < simSys.InterarrivalDistribution.Count; i++) {
+
+                        TimeDistribution t = simSys.InterarrivalDistribution[i];
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = t.Time.ToString()}, 0, row);
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = t.Probability.ToString() }, 1, row);
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = t.CummProbability.ToString() }, 2, row);
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = ""+t.MinRange + " - "+ t.MaxRange }, 3, row);
+                        
                         row++;
                     }
-                    MessageBox.Show(tableLayoutPanel1.RowCount.ToString());
-
+                    serverNo = 1;
+                    for (int i = 1; i < indecies.Count; i++) {
+                        int index = indecies[i];
+                        decimal cummulativeProbabilityForServer = 0;
+                        Server server = new Server();
+                        server.ID = serverNo;
+                        while (index < lines.Length && lines[index] != "") {
+                            TimeDistribution t = new TimeDistribution();
+                            string[] timeAndProb = lines[index].Split(',');
+                            t.Time = int.Parse(timeAndProb[0]);
+                            t.MinRange = (cummulativeProbabilityForServer == 0) ? 0 : (int)(cummulativeProbabilityForServer * 100) + 1;
+                            cummulativeProbabilityForServer += decimal.Parse(timeAndProb[1]);
+                            t.Probability = decimal.Parse(timeAndProb[1]);
+                            t.Probability = decimal.Parse(timeAndProb[1]);
+                            t.CummProbability = cummulativeProbabilityForServer;
+                            t.MaxRange = (int)(t.CummProbability * 100);
+                            server.TimeDistribution.Add(t);
+                            index++;
+                        }
+                        simSys.Servers.Add(server);
+                        serverNo++;
+                    }
 
                 }
             }
@@ -111,11 +135,28 @@ namespace MultiQueueSimulation
             return number == 1 ? Enums.SelectionMethod.HighestPriority : number  == 2 ? Enums.SelectionMethod.Random : Enums.SelectionMethod.LeastUtilization;
         }
 
-        private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
-        {
-           
+        private void resetTableValues() {
+            
+
         }
 
-        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (simSys == null)
+            {
+                MessageBox.Show("Make sure to read test case first");
+            }
+            else {
+               
+
+                ServerInfo s = new ServerInfo(simSys.Servers[0]);
+                s.Show();
+               
+            }
+        }
+
+        public static SimulationSystem getSimSys() {
+            return simSys;
+        }
     }
 }
