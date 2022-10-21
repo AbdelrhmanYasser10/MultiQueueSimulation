@@ -4,12 +4,11 @@ using System.IO;
 using System.Windows.Forms;
 using MultiQueueModels;
 
-
 namespace MultiQueueSimulation
 {
     public partial class HomePage : Form
     {
-
+        
         private static SimulationSystem simSys;
 
         public HomePage()
@@ -20,6 +19,8 @@ namespace MultiQueueSimulation
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (simSys != null)
+                resetTableValues(simSys.InterarrivalDistribution.Count);
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
                 simSys = new SimulationSystem();
                 string OpenedFilePath = openFileDialog1.FileName;
@@ -135,10 +136,6 @@ namespace MultiQueueSimulation
             return number == 1 ? Enums.SelectionMethod.HighestPriority : number  == 2 ? Enums.SelectionMethod.Random : Enums.SelectionMethod.LeastUtilization;
         }
 
-        private void resetTableValues() {
-            
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -157,6 +154,16 @@ namespace MultiQueueSimulation
 
         public static SimulationSystem getSimSys() {
             return simSys;
+        }
+        private void resetTableValues(int count)
+        {
+
+            for (int i = 0; i < count; i++)
+            {
+                TableLayoutHelper.RemoveArbitraryRow(tableLayoutPanel1, 1);
+
+            }
+
         }
     }
 }
