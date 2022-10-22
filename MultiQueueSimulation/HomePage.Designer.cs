@@ -59,6 +59,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Next";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -151,6 +152,7 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Probability";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button3
             // 
@@ -175,6 +177,7 @@
             this.Controls.Add(this.button1);
             this.Name = "HomePage";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.HomePage_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

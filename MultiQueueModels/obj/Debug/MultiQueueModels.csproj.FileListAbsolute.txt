@@ -40,3 +40,9 @@ D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueModels\obj\Debug\MultiQueueModels.csproj.CoreCompileInputs.cache
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueModels\obj\Debug\MultiQueueModels.dll
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueModels\obj\Debug\MultiQueueModels.pdb
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueModels\bin\Debug\MultiQueueModels.dll
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueModels\bin\Debug\MultiQueueModels.pdb
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueModels\obj\Debug\MultiQueueModels.csprojAssemblyReference.cache
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueModels\obj\Debug\MultiQueueModels.csproj.CoreCompileInputs.cache
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueModels\obj\Debug\MultiQueueModels.dll
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueModels\obj\Debug\MultiQueueModels.pdb

@@ -24,7 +24,8 @@ namespace MultiQueueSimulation
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
                 simSys = new SimulationSystem();
                 string OpenedFilePath = openFileDialog1.FileName;
-                if (!OpenedFilePath.Contains(".txt"))
+             
+                if (!OpenedFilePath.EndsWith(".txt"))
                 {
                     MessageBox.Show("Make sure to select text file");
                 }
@@ -163,6 +164,22 @@ namespace MultiQueueSimulation
                 TableLayoutHelper.RemoveArbitraryRow(tableLayoutPanel1, 1);
 
             }
+
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SimulatinTableForm simForm = new SimulatinTableForm(simSys);
+            simForm.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
     }
