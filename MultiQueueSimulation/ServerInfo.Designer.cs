@@ -58,6 +58,7 @@ namespace MultiQueueSimulation
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.33414F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(860, 321);
             this.tableLayoutPanel1.TabIndex = 5;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label5
             // 
@@ -106,6 +107,7 @@ namespace MultiQueueSimulation
             this.label3.TabIndex = 1;
             this.label3.Text = "Probability";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 

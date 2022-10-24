@@ -10,7 +10,7 @@ namespace MultiQueueSimulation
     {
         
         private static SimulationSystem simSys;
-
+        private string OpenedFilePath = "";
         public HomePage()
         {
             InitializeComponent();
@@ -23,8 +23,9 @@ namespace MultiQueueSimulation
                 resetTableValues(simSys.InterarrivalDistribution.Count);
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
                 simSys = new SimulationSystem();
-                string OpenedFilePath = openFileDialog1.FileName;
-                if (!OpenedFilePath.Contains(".txt"))
+                OpenedFilePath = openFileDialog1.FileName;
+             
+                if (!OpenedFilePath.EndsWith(".txt"))
                 {
                     MessageBox.Show("Make sure to select text file");
                 }
@@ -163,6 +164,28 @@ namespace MultiQueueSimulation
                 TableLayoutHelper.RemoveArbitraryRow(tableLayoutPanel1, 1);
 
             }
+
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int number = 0;
+            for (int i = 1; i <= 10; i++) {
+                if (OpenedFilePath.EndsWith(i.ToString() + ".txt")) {
+                    number = i;
+                }
+            }
+            SimulatinTableForm simForm = new SimulatinTableForm(simSys , number);
+            simForm.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
     }

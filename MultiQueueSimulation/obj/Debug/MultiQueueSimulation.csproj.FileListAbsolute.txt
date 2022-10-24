@@ -98,3 +98,19 @@ D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.pdb
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.HomePage.resources
 D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.ServerInfo.resources
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\bin\Debug\MultiQueueSimulation.exe.config
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\bin\Debug\MultiQueueSimulation.exe
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\bin\Debug\MultiQueueSimulation.pdb
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\bin\Debug\MultiQueueModels.dll
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\bin\Debug\MultiQueueModels.pdb
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.csprojAssemblyReference.cache
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.HomePage.resources
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.Properties.Resources.resources
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.ServerInfo.resources
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.csproj.GenerateResource.cache
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.csproj.CoreCompileInputs.cache
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.csproj.CopyComplete
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.exe
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.pdb
+C:\Users\future\Desktop\simulation\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.SimulatinTableForm.resources
+D:\Computer Science ASU\Forth- Year\Simulation & Modeling\Labs\Template_Students\MultiQueueSimulation\MultiQueueSimulation\obj\Debug\MultiQueueSimulation.SimulatinTableForm.resources

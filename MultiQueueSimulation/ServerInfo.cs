@@ -59,5 +59,15 @@ namespace MultiQueueSimulation
                 new ServerInfo(HomePage.getSimSys().Servers[server.ID]).Show();
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
