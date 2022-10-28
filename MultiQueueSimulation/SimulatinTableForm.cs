@@ -113,7 +113,7 @@ namespace MultiQueueSimulation
                 user.ArrivalTime = simSys.SimulationTable[i - 1].ArrivalTime + user.InterArrival;//4
                 List<int> server =
                     method == Enums.SelectionMethod.HighestPriority ? getServerOfHightPriorty(simSys.Servers, user.ArrivalTime)
-                    : method == Enums.SelectionMethod.Random ? getServerOfRandom(simSys.Servers, user.ArrivalTime) : getServerLeastUtilization(simSys.Servers , maxFinish);
+                    : method == Enums.SelectionMethod.Random ? getServerOfRandom(simSys.Servers, user.ArrivalTime) : getServerLeastUtilization(simSys.Servers , user.ArrivalTime);
 
                 int timeToAvailbe = server[0];
                 int serverID = server[1];
@@ -225,24 +225,33 @@ namespace MultiQueueSimulation
 
 
         //Bonus
-        public List<int> getServerLeastUtilization(List<Server> servers,decimal totalServiceTime) {
+        public List<int> getServerLeastUtilization(List<Server> servers , int arrivalTime) {
             List<int> output = new List<int>();
-
-            decimal leastUtilization = decimal.MaxValue;
-            int index = -1;
-            output.Add(int.MaxValue);
+            int index = 0;
+            output.Add(servers[index].FinishTime);
             output.Add(index);
-
-            for (int i = 0; i < servers.Count; i++) {
-                decimal x = 0;
-                if (totalServiceTime > 0)
-                {
-                    x = simSys.Servers[i].TotalWorkingTime;
-                    x /= totalServiceTime;
-                }
-                if (x < leastUtilization) {
-                    output[0] = servers[i].FinishTime;
-                    output[1] = i;
+            List<int> activeServers = new List<int>();
+            int finish = servers[0].FinishTime;
+            for (int i = 0; i < servers.Count; i++)
+            {
+                if (servers[i].FinishTime <= arrivalTime)
+                    activeServers.Add(i);
+                finish = Math.Min(finish, servers[i].FinishTime);
+            }
+            if (activeServers.Count == 0)
+            {
+                for (int i = 0; i < servers.Count; i++)
+                    if (servers[i].FinishTime == finish) activeServers.Add(i);
+            }
+            output[0] = servers[activeServers[0]].FinishTime;
+            output[1] = activeServers[0];
+            index = activeServers[0];
+            for (int i = 1; i < activeServers.Count; i++) {                
+                
+                if (servers[activeServers[i]].TotalWorkingTime < servers[index].TotalWorkingTime) {
+                    index = activeServers[i];
+                    output[0] = servers[activeServers[i]].FinishTime;
+                    output[1] = activeServers[i];
                 }
             }
             return output;
@@ -314,7 +323,7 @@ namespace MultiQueueSimulation
             return counter;
         }
 
-
+        
     }
 
 }
